@@ -14,6 +14,7 @@ define("br", "<br>", true);
 
 // y - Represents a year (in two digits) demo - 22, 23,19,18
 // Y - Represents a year (in four digits) demo - 2022, 2023, 2024
+// S - (st, nd, rd or th)
 
 echo "<h2>----- Date -----</h2>";
 echo "<h3>Day</h3>";
@@ -30,7 +31,7 @@ echo "<h3>Year</h3>";
 echo date("y") . " ------ date('y') - a year (in two digits)" . br;
 echo date("Y") . " ------ date('Y') - a year (in Four digits)" . br;
 echo "<h3>Date Formats</h3>";
-echo date("d-m-Y") . br; // most used
+echo date("dS-m-Y") . br; // most used
 echo date("j-n-y") . br; // most used
 echo date("l, d F, Y") . br; // most used
 echo date("D, d M, Y") . br; // most used
@@ -39,6 +40,8 @@ echo "<h2>----- Time -----</h2>";
 
 // H - 24-hour format of an hour (00 to 23)
 // h - 12-hour format of an hour with leading zeros (01 to 12)
+// G - 24-hour format of an hour with leading zeros (0 to 23)
+// g - 12-hour format of an hour with leading zeros (1 to 12)
 // i - Minutes with leading zeros (00 to 59)
 // s - Seconds with leading zeros (00 to 59)
 // a - Lowercase Ante meridiem and Post meridiem (am or pm)
@@ -50,3 +53,21 @@ echo date("i") . " ------ date('i') - minutes with leading (00 to 59)" . br;
 echo date("s") . " ------ date('s') - seconds with leading (00 to 59)" . br;
 echo date("a") . " ------ date('a') - am or pm" . br;
 echo date("A") . " ------ date('A') - uppercase use" . br;
+echo br;
+echo date("h:i:sa");
+echo br;
+echo date("H:i:sA");
+echo br;
+echo date("G:i:sA");
+echo br;
+echo date("g:i:sA");
+
+echo "<h2>----- mktime() -----</h2>";
+echo "<h2>----- formate - <mark> mktime(hour, minute, second, month, day, year)</mark> -----</h2>";
+
+$mktime = mktime(11, 18, 50, 11, 20, 2022);
+echo date("Y-m-d h:i:sa", $mktime);
+echo br;
+echo date("d-m-Y", $mktime);
+echo br;
+echo date("h:i:sA");
