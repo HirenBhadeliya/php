@@ -71,3 +71,7 @@ echo br;
 echo date("d-m-Y", $mktime);
 echo br;
 echo date("h:i:sA");
+echo br;
+echo br;
+echo br;
+echo date("L");
